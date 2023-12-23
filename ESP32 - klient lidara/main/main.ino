@@ -68,12 +68,12 @@ void loop() {
       ldlidar::Points2D lidarData;
       if (lidarPackage.GetLaserScanData(lidarData)) {
         // Convert LiDAR data to a JSON string (you may need to customize this part based on your data format)
-        String jsonData = "{";
-        for (const auto &point : lidarData) {
-          jsonData += "\"" + String(point.angle) + "\": " + String(point.distance) + ",";
-        }
-        jsonData.remove(jsonData.length() - 1); // Remove the trailing comma
-        jsonData += "}";
+        // String jsonData = "{";
+        // for (const auto &point : lidarData) {
+        //   jsonData += "\"" + String(point.angle) + "\": " + String(point.distance) + ",";
+        // }
+        // jsonData.remove(jsonData.length() - 1); // Remove the trailing comma
+        // jsonData += "}";
 
         // Send LiDAR data via WebSocket
         socket.send(jsonData);
